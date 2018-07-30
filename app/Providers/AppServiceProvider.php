@@ -8,6 +8,7 @@ use App\Http\ViewComposers\MenuComposer;
 use App\Http\ViewComposers\HeaderComposer;
 use Laravel\Dusk\DuskServiceProvider;
 use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -35,6 +36,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('request', function ($url) {
             return request()->is($url);
         });
+
+        Schema::defaultStringLength(191);
     }
 
     /**

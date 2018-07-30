@@ -2,73 +2,63 @@
 
 **Laravel 5-5 example** is a tutorial application.
 
+### Assignment ###
+
+Workflow:
+- Fork this project on Github with your own account.
+- Fulfill the assignment.
+- Send a Pull Request.
+
+Assignment:
+- Create a new page `Guestbook`
+- This page lists all guestbook entries, with the newest on top.
+- At the bottom of the page there is a panel which allows the user to create a new guestbook entry.
+- Guestbook entries show the username, date of creation, user avatar and the content of the entry.
+- Only logged in users can leave a comment.
+- All entries are saved to the database.
+- Base the feature on [this design](design.png)
+
+### Prerequisites ###
+
+* Install Git
+   * Download of commandline tool: https://git-scm.com/download/win
+   * See https://guides.github.com/introduction/git-handbook/ for the workings
+   * (Optional) Git GUI: https://www.gitkraken.com/ or https://desktop.github.com/ or https://tortoisegit.org/
+* Install PHP and MySQL. This can be done either manually or through, for example, XAMPP.
+   * Manually: Make sure the following PHP extensions are enabled: (See `Server Requirements`: https://laravel.com/docs/5.6/installation#installation)
+   * XAMPP:
+      * https://www.apachefriends.org/download.html (latest version as of writing: 7.2.7)
+      * Only PHP and MySQL have to be selected in the installer. (Apache cannot be unchecked, but we don't use it)
+      * Only start MySQL in the XAMPP Control Panel
+* Install Composer (https://getcomposer.org/Composer-Setup.exe)
+   * Select the php executable in `c:\xampp\php`
+* Open a new command line window and test if the follow commands work: `php -v` and `composer -V`
+  (If they don't work you may need to restart your computer or check that php.exe and composer.exe are in the PATH)
+
 ### Installation ###
 
-* type `git clone https://github.com/bestmomo/laravel5-5-example.git projectname` to clone the repository 
-* type `cd projectname`
+* click in GitHub on Fork
+* click on `Clone or download` (green button) and copy the url
+* type `git clone %URL of Clone or download% test-app` to clone the repository 
+* type `cd test-app`
 * type `composer install`
-* type `composer update`
-* copy *.env.example* to *.env*
-* type `php artisan key:generate`to generate secure key in *.env* file
-* if you use MySQL in *.env* file :
+* (Optional) if you don't use XAMPP in *.env* file:
    * set DB_CONNECTION
    * set DB_DATABASE
    * set DB_USERNAME
    * set DB_PASSWORD
-* if you use sqlite :
-   * type `touch database/database.sqlite` to create the file
-* type `php artisan migrate --seed` to create and populate tables
-* edit *.env* for emails configuration
+* create a new empty database in MySQL with the name `testapp`
+* type `php artisan serve` to start the app
+* type `php artisan migrate --seed` (in a new cmd) to create and populate tables
 
-### Include ###
+### Tips ###
 
-* [Styleshout](https://www.styleshout.com/) for front template
-* [CKEditor](http://ckeditor.com) the great editor
-* [Elfinder](https://github.com/Studio-42/elFinder) the nice file manager
-* [Sweat Alert](http://t4t5.github.io/sweetalert/) for the cool alerts
-* [AdminLTE](https://adminlte.io/themes/AdminLTE/index2.html) the great admin template
-* [Gravatar](https://github.com/creativeorange/gravatar) the Gravatar package
-* [Intervention Image](http://image.intervention.io/) for image manipulation
-* [Email confirmation](https://github.com/bestmomo/laravel-email-confirmation) the package for email confirmation
-* [Artisan language](https://github.com/bestmomo/laravel-artisan-language) the package for language strings management
-* [Laravel debugbar](https://github.com/barryvdh/laravel-debugbar)
-* [Etrepat baum](https://github.com/etrepat/baum) for comments management
-
-### Features ###
-
-* Home page
-* Custom error pages 403, 404 and 503
-* Authentication (registration, login, logout, password reset, mail confirmation, throttle)
-* Users roles : administrator (all access), redactor (create and edit post, upload and use medias in personnal directory), and user (create comment in blog)
-* Blog with nested comments
-* Search in posts
-* Tags on posts
-* Contact us page
-* Admin dashboard with users, posts, articles, medias, settings, notifications and comments
-* Multi users medias gestion
-* Localization (English, French and Chinese)
-* Application tests
-* Thumbs creation for images
-* Notifications to send emails and notify redactors for new comments
-
-### Tricks ###
-
-To use application the database is seeding with users :
-
-* Administrator : email = admin@la.fr, password = admin
-* Redactor : email = redac@la.fr, password = redac
-* User : email = walker@la.fr, password = walker
-* User : email = slacker@la.fr, password = slacker
-
-### Tests ###
-
-When you want to launch the tests refresh and populate the database :
-
-`php artisan migrate:fresh --seed`
-
-You must have default settings and **en** language. You must also add provider in **config/app.php**.
-
-You can then use Dusk.
+* Existing users:
+   * Administrator : email = admin@la.fr, password = admin
+   * Redactor : email = redac@la.fr, password = redac
+   * User : email = walker@la.fr, password = walker
+   * User : email = slacker@la.fr, password = slacker
+* Email of the app will not actually be send, but will be printed to the console log (the window where `php artisan serve` is ran). You can use this to, for example, confirm an account.
 
 ### License ###
 
